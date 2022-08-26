@@ -36,14 +36,17 @@ public class Board {
     @CreatedDate
     private LocalDateTime createDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate codyDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime codyDate;
 
     @Enumerated(EnumType.STRING)
     private WeatherStatus status; //날씨 상태[더워요, 따뜻해요, 딱 좋아요, 서늘해요, 추워요]
 
     @Enumerated(EnumType.STRING)
     private SkyCode skyCode;
+
+    @Column
+    private String region;
 
     @OneToMany(mappedBy = "board")
     private List<Image> images = new ArrayList<>();
@@ -66,7 +69,6 @@ public class Board {
     @JsonBackReference
     private List<Reply> replies;
 
-
     public void mappingBoardLike(Likes likes) {
         this.likesList.add(likes);
     }
@@ -87,7 +89,7 @@ public class Board {
 
 
     @Builder
-    public Board(String content, Member member, boolean privacy, LocalDateTime createDate, WeatherStatus status, SkyCode skyCode,Clothes clothes, String presentTemperature, String highestTemperature, String lowestTemperature, LocalDate codyDate) {
+    public Board(String content, Member member, boolean privacy, LocalDateTime createDate, WeatherStatus status, SkyCode skyCode,Clothes clothes, String presentTemperature, String highestTemperature, String lowestTemperature, LocalDateTime codyDate, String region) {
         this.content = content;
         this.member = member;
         this.privacy = privacy;
@@ -99,6 +101,7 @@ public class Board {
         this.highestTemperature = highestTemperature;
         this.lowestTemperature = lowestTemperature;
         this.codyDate = codyDate;
+        this.region = region;
     }
 
 

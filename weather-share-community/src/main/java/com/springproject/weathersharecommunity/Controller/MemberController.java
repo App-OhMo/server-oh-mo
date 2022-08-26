@@ -111,10 +111,10 @@ public class MemberController {
 //    }
 
     @PostMapping("user/mypage/edit/profile")
-    public ResponseEntity ProfileUpdate(@RequestPart(value = "profile", required = false) final MultipartFile multipartFile) {
+    public ResponseEntity profileUpdate(@RequestPart(value = "profile", required = false) final MultipartFile multipartFile) {
         Authentication user = SecurityContextHolder.getContext().getAuthentication();
         Member member = (Member) user.getPrincipal();
-        return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "마이페이지 수정 완료", memberService.ProfileImgUpdate(member.getId(), multipartFile)),HttpStatus.OK);
+        return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "마이페이지 수정 완료", memberService.profileImgUpdate(member.getId(), multipartFile)),HttpStatus.OK);
     }
 
     //개인 피드

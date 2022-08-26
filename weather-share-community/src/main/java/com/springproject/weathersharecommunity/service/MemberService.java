@@ -71,7 +71,7 @@ public class MemberService {
 //    }
 
     @Transactional
-    public String ProfileImgUpdate(Long memberId ,MultipartFile multipartFile) {
+    public String profileImgUpdate(Long memberId ,MultipartFile multipartFile) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(()->new IllegalArgumentException("해당 사용자가 없습니다."));
         s3FileUploadService.deleteFile(member.getProfileUrl(),"user");

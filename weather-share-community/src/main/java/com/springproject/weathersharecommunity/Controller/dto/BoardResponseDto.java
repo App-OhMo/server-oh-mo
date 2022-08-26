@@ -33,13 +33,14 @@ public class BoardResponseDto {
 
     private String lowestTemperature;
 
-    private LocalDate codyDate;
+    private LocalDateTime codyDate;
 
     private Clothes clothes;
 
     private List<String> images;
     private MemberResponseDto memberResponseDto;
     private ClothesResponseDto clothesResponseDto;
+    private String region;
     public BoardResponseDto(Board entity, List<String> images, MemberResponseDto memberResponseDto, ClothesResponseDto clothesResponseDto) {
         this.id = entity.getId();
         this.content = entity.getContent();
@@ -52,6 +53,7 @@ public class BoardResponseDto {
         this.lowestTemperature = entity.getLowestTemperature();
         this.presentTemperature = entity.getPresentTemperature();
         this.codyDate = entity.getCodyDate();
+        this.region = entity.getRegion();
     }
 
 
