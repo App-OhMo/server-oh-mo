@@ -18,4 +18,13 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     @Query(value = "SELECT * FROM Board as b WHERE b.user_id IN (:followList)", nativeQuery = true)
     List<Board> followingPosts(@Param("followList") List<Long> followList);
+
+
+   // @Query(value = "SELECT * FROM Board WHERE present_temperature BETWEEN (CAST(b.presentTemperature AS singed integer)-2) AND currentWeather)", nativeQuery = true)
+    @Query(value = "SELECT * FROM Board as b WHERE b.present_temperature IN (:tempsToString) ", nativeQuery = true)
+    List<Board> recommendPosts(@Param(value = "tempsToString") List<String> tempsToString);
+
+
+
+
 }
