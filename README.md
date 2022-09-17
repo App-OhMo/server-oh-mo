@@ -270,6 +270,63 @@ http://3.38.56.88:8080/
 }
 ```    
 
+#### 추천피드
+|||
+|------|---|
+|method|Get|
+|url|/board/recommend|
+|Header|X-AUTH-TOKEN|
+|Param|currentWeather|
+|참고| 현재날씨 +-2도의 게시물 추천 |
+```
+{
+  "statusCode": 200,
+    "responseMessage": "추천 게시글",
+    "data": [
+        {
+            "id": 1,
+            "content": "test content1",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3758659",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c982460c-ac61-468d-8f9a-d61a326b0c60.PNG"
+        },
+        {
+            "id": 4,
+            "content": "test content2",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3998028",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/adf4788f-4784-40ac-9848-33914b3f4d36.PNG"
+        },
+        {
+            "id": 7,
+            "content": "test content3",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.4017974",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c078980c-1434-4cec-b47d-59ef145b0b80.PNG"
+        },
+        {
+            "id": 10,
+            "content": "test content4",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.408779",
+            "status": null,
+            "memberName": "kim2",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c5a16e1a-5c37-4e16-810f-fb21d0ab0fbe.PNG"
+        }
+    ]
+}
+```
+
 #### 좋아요
 |||
 |------|---|
