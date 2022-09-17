@@ -280,7 +280,7 @@ http://3.38.56.88:8080/
 |참고| 현재날씨 +-2도의 게시물 추천 |
 ```
 {
-  "statusCode": 200,
+    "statusCode": 200,
     "responseMessage": "추천 게시글",
     "data": [
         {
