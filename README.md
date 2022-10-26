@@ -25,9 +25,7 @@ http://3.38.56.88:8080/
 |------|---|
 |method|Post|
 |url|/user/join|
-|file|1개, name= "profile", null 가능|
 |Body|{"nickName" : "bbbb", "userEmail":"bbbb@bbbb.com", "pwd" : "bbbb"}|   
-|참고| 프로필 제외한 나머지 속성들 null 불가능, 이메일 @ 없이 보내면 오류
 
 ```
 {
