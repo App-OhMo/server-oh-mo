@@ -46,7 +46,7 @@ public class MemberController {
 
     @PostMapping("user/join")
     @ResponseBody
-    public ResponseEntity join(@Valid @RequestPart(value = "requestDto",required = false) MemberSaveRequestDto requestDto, @RequestPart(value = "profile", required = false) final MultipartFile multipartFile, Errors errors) throws IOException {
+    public ResponseEntity join(@Valid @RequestBody MemberSaveRequestDto requestDto, Errors errors) throws IOException {
 
         if (errors.hasErrors()) {
             Map<String, String> error = new HashMap<>();
@@ -59,7 +59,7 @@ public class MemberController {
             }
             return new ResponseEntity(DefaultRes.defaultRes(StatusCode.FORBIDDEN, message), HttpStatus.OK);
         }
-        memberService.save(requestDto, multipartFile);
+        memberService.save(requestDto);
         return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "회원가입 성공"), HttpStatus.OK);
     }
 
@@ -111,10 +111,10 @@ public class MemberController {
 //    }
 
     @PostMapping("user/mypage/edit/profile")
-    public ResponseEntity ProfileUpdate(@RequestPart(value = "profile", required = false) final MultipartFile multipartFile) {
+    public ResponseEntity profileUpdate(@RequestPart(value = "profile", required = false) final MultipartFile multipartFile, @RequestPart String nickName) {
         Authentication user = SecurityContextHolder.getContext().getAuthentication();
         Member member = (Member) user.getPrincipal();
-        return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "마이페이지 수정 완료", memberService.ProfileImgUpdate(member.getId(), multipartFile)),HttpStatus.OK);
+        return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "마이페이지 수정 완료", memberService.profileImgUpdate(member.getId(), multipartFile, nickName)),HttpStatus.OK);
     }
 
     //개인 피드

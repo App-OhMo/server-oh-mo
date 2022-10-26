@@ -45,12 +45,13 @@ public class BoardRequestDto {
 
     private String lowestTemperature;
 
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate codyDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime codyDate;
 
+    private String region;
     @Builder
-    public BoardRequestDto(Member member , String content, boolean privacy, LocalDateTime createDate, WeatherStatus status, String presentTemperature, String highestTemperature, String lowestTemperature, Clothes clothes, SkyCode skyCode, LocalDate codyDate) {
+    public BoardRequestDto(Member member , String content, boolean privacy, LocalDateTime createDate, WeatherStatus status, String presentTemperature, String highestTemperature, String lowestTemperature, Clothes clothes, SkyCode skyCode, LocalDateTime codyDate) {
         this.member = member;
         this.content = content;
         this.privacy = privacy;
@@ -77,6 +78,7 @@ public class BoardRequestDto {
                 .presentTemperature(presentTemperature)
                 .privacy(privacy)
                 .codyDate(codyDate)
+                .region(region)
                 .build();
     }
 }

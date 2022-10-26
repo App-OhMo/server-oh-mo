@@ -19,12 +19,36 @@ public class ClothesResponseDto {
     private String accessory2;
 
     public ClothesResponseDto (Clothes entity) {
-        this.top = entity.getTop().getViewName();
-        this.bottom = entity.getBottom().getViewName();
-        this.outerClothing = entity.getOuterClothing().getViewName();
-        this.shoes = entity.getShoes().getViewName();
-        this.accessory1 = entity.getAccessory1().getViewName();
-        this.accessory2 = entity.getAccessory2().getViewName();
+        try {
+            this.top = entity.getTop().getViewName();
+        } catch (NullPointerException e) {
+            top = "";
+        }
+        try {
+            this.bottom = entity.getBottom().getViewName();
+        } catch (NullPointerException e) {
+            bottom = "";
+        }
+        try {
+            this.outerClothing = entity.getOuterClothing().getViewName();
+        } catch (NullPointerException e) {
+            outerClothing = "";
+        }
+        try {
+            this.shoes = entity.getShoes().getViewName();
+        } catch (NullPointerException e) {
+            shoes = "";
+        }
+        try {
+            this.accessory1 = entity.getAccessory1().getViewName();
+        } catch (NullPointerException e) {
+            accessory1 = "";
+        }
+        try {
+            this.accessory2 = entity.getAccessory2().getViewName();
+        } catch (NullPointerException e) {
+            accessory2 = "";
+        }
     }
 
 }

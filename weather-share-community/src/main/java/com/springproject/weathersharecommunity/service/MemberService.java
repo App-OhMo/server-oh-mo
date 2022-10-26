@@ -28,18 +28,18 @@ public class MemberService {
     private final S3FileUploadService s3FileUploadService;
     private final FollowRepository followRepository;
     @Transactional
-    public void save(MemberSaveRequestDto requestDto, MultipartFile multipartFile) throws IOException {
+    public void save(MemberSaveRequestDto requestDto) throws IOException {
         requestDto.setPwd(passwordEncoder.encode(requestDto.getPwd()));
-        try {
-            if (multipartFile.isEmpty()) {
-                requestDto.setProfileUrl("");
-            } else {
-                requestDto.setProfileUrl(s3FileUploadService.uploadImage(multipartFile, "user"));
-            }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            requestDto.setProfileUrl("");
-        }
+//        try {
+//            if (multipartFile.isEmpty()) {
+//                requestDto.setProfileUrl("");
+//            } else {
+//                requestDto.setProfileUrl(s3FileUploadService.uploadImage(multipartFile, "user"));
+//            }
+//        } catch (NullPointerException e) {
+//            e.printStackTrace();
+//            requestDto.setProfileUrl("");
+//        }
         Member member = memberRepository.save(requestDto.toEntity());
 
 
@@ -72,7 +72,7 @@ public class MemberService {
 //    }
 
     @Transactional
-    public String ProfileImgUpdate(Long memberId ,MultipartFile multipartFile) {
+    public String profileImgUpdate(Long memberId ,MultipartFile multipartFile, String nickName) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(()->new IllegalArgumentException("해당 사용자가 없습니다."));
         s3FileUploadService.deleteFile(member.getProfileUrl(),"user");

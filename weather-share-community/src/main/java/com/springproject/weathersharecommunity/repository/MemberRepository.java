@@ -2,6 +2,7 @@ package com.springproject.weathersharecommunity.repository;
 
 import com.springproject.weathersharecommunity.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
