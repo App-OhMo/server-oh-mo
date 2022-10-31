@@ -19,6 +19,20 @@ weather-share-community
 http://3.38.56.88:8080/
 
 ## API
+### Test
+#### 전체멤버 조회
+|||  
+|------|---|
+|method|Get|
+|url|/test/user/all|
+```
+{
+    "statusCode": 200,
+    "responseMessage": "전체 멤버 조회",
+    "data": "db에 들어있느 회원 전체 정보"
+}
+```   
+
 ### User
 #### 회원가입
 |||
@@ -39,7 +53,6 @@ http://3.38.56.88:8080/
 |------|---|
 |method|Post|
 |url|/user/login|
-|Header|X-AUTH-TOKEN|
 |Body|{"userEmail" : "bbbb","pwd" : "bbbb"}|   
 
 ```
