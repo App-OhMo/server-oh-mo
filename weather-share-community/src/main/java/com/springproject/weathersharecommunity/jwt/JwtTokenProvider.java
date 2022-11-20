@@ -1,10 +1,7 @@
 package com.springproject.weathersharecommunity.jwt;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -60,17 +57,31 @@ public class JwtTokenProvider {
 
     // header에서 토큰 가져오는 것
     public String resolveToken(HttpServletRequest request) {
-        String token = null;
-        Cookie cookie = WebUtils.getCookie(request, "X-AUTH-TOKEN");
-        if(cookie != null)
-            token = cookie.getValue();
-        return token;
-    }
-    public boolean validateToken(String jwtToken){
         try {
-            Jws<Claims> claimsJws = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtToken);
-            return !claimsJws.getBody().getExpiration().before(new Date());
+            String token = null;
+            Cookie cookie = WebUtils.getCookie(request, "X-AUTH-TOKEN");
+            if (cookie != null)
+                token = request.getHeader("X-AUTH-TOKEN");
+            return token;
         } catch (Exception e) {
+            return "false";
+        }
+    }
+    public boolean validateToken(String jwtToken, HttpServletRequest request){
+        try {
+            Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtToken);
+            return !claims.getBody().getExpiration().before(new Date());
+        } catch(SecurityException | MalformedJwtException e) {
+            System.out.println("Invalid JWT signature");
+            return false;
+        } catch(UnsupportedJwtException e) {
+            System.out.println("Unsupported JWT token");
+            return false;
+        } catch(IllegalArgumentException e) {
+            System.out.println("JWT token is invalid");
+            return false;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("index error");
             return false;
         }
     }

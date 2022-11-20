@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -153,4 +154,16 @@ public class MemberController {
         return ResponseEntity.ok(memberService.checkNickNameDuplicate(memberSaveRequestDto.getNickName()));
 
     }
+
+    @PostMapping("/check/token")
+    public ResponseEntity validateToken(HttpServletRequest request){
+        try {
+            String token = jwtTokenProvider.resolveToken(request);
+            return ResponseEntity.ok(jwtTokenProvider.validateToken(token, request));
+        } catch (Exception e) {
+
+            return ResponseEntity.ok(false);
+        }
+    }
+
 }
