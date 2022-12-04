@@ -298,6 +298,7 @@ http://3.38.56.88:8080/
 |url|/board/recommend|
 |Header|X-AUTH-TOKEN|
 |Param|currentWeather|
+|   |currentWeather: int, 현재 날씨|
 |참고| 현재날씨 +-2도의 게시물 추천 |
 ```
 {
@@ -636,6 +637,7 @@ http://3.38.56.88:8080/
 |url|/board/search|
 |Header|X-AUTH-TOKEN|
 |Param|keyword|
+|   |keyword: string, 검색 키워드|
 ```
 {
     "statusCode": 200,
@@ -662,6 +664,7 @@ http://3.38.56.88:8080/
 |url|/board/searchImg|
 |Header|X-AUTH-TOKEN|
 |Param|keyword|
+|   |keyword: string, 검색 키워드|
 |참고| 키워드 검색시 업로드한 게시물 id와 작성자 프로필 사진만 가져옴 |
 ```
 {
