@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ceda125-db54-45ae-a3f8-c22302eb8e1a" name="Changes" comment="" />
+    <list default="true" id="9ceda125-db54-45ae-a3f8-c22302eb8e1a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/dto/MemberSaveRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/dto/MemberSaveRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/MemberService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,10 +63,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="D:/" />
   </component>
-  <component name="RunManager" selected="Gradle.weather-share-community [build]">
+  <component name="RunManager" selected="Application.WeatherShareCommunityApplication">
     <configuration name="WeatherShareCommunityApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-11.0.13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.springproject.weathersharecommunity.WeatherShareCommunityApplication" />
-      <module name="weather-share-community.main" />
+      <module name="weather-share-community.weather-share-community.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.springproject.weathersharecommunity.*" />
@@ -94,10 +100,14 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.WeatherShareCommunityApplication" />
+      <item itemvalue="Gradle.weather-share-community [build]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.weather-share-community [build]" />
         <item itemvalue="Application.WeatherShareCommunityApplication" />
+        <item itemvalue="Gradle.weather-share-community [build]" />
         <item itemvalue="Application.WeatherShareCommunityApplication" />
         <item itemvalue="Application.WeatherShareCommunityApplication" />
         <item itemvalue="Application.WeatherShareCommunityApplication" />
