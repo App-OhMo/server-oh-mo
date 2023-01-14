@@ -28,15 +28,29 @@ public class recommendController {
     private final recommendService recommendService;
 
     @GetMapping(value = "/board/recommend/{skyCode}")
-    public ResponseEntity RecommendBoard(@RequestParam(value = "currentWeather", required = false) int currentWeather, @PathVariable SkyCode skyCode) {
-//        boardList = boardList.stream().filter(b -> b.getCategory().getTitle().equals(Status.PROCEEDING.getCode())).collect(Collectors.toList());
+    public ResponseEntity RecommendBoardBySkyCode(@RequestParam(value = "currentWeather", required = false) int currentWeather, @PathVariable SkyCode skyCode) {
         List<BoardAllResponseDto> boards = new ArrayList<>();
         List<String> temps = new ArrayList<>();
         for (int i = currentWeather-2; i < currentWeather+2; i++) {
             temps.add(String.valueOf(i));
         }
-        System.out.println();
         boards = recommendService.recommendPosts(temps).stream().filter(b -> b.getSkyCode().equals(skyCode)).collect(Collectors.toList());
+
+        if (boards.size() == 0) {
+            return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "컨텐츠가 없습니다"), HttpStatus.OK);
+        } else
+            return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "추천 게시글", boards), HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/board/recommend")
+    public ResponseEntity RecommendBoard(@RequestParam(value = "currentWeather", required = false) int currentWeather) {
+        List<BoardAllResponseDto> boards = new ArrayList<>();
+        List<String> temps = new ArrayList<>();
+        for (int i = currentWeather-2; i < currentWeather+2; i++) {
+            temps.add(String.valueOf(i));
+        }
+        boards = recommendService.recommendPosts(temps);
 
         if (boards.size() == 0) {
             return new ResponseEntity(DefaultRes.defaultRes(StatusCode.OK, "컨텐츠가 없습니다"), HttpStatus.OK);
