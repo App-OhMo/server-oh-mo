@@ -348,6 +348,44 @@ http://3.38.56.88:8080/
     ]
 }
 ```
+#### 하늘상태 기반 추천피드
+|||
+|------|---|
+|method|Get|
+|url|/board/recommend/{skyCode}|
+|Header|X-AUTH-TOKEN|
+|Param|currentWeather|
+|url(ex)|/board/recommend/Sunny?currentWeather=30|
+|   |currentWeather: int, 현재 날씨|
+|참고| 현재날씨 +-2 추천피드 + 하늘상태 (Sunny - 맑음, Blur - 흐림, Cloudy - 구름많음, Rain -비, Snow - 눈), 각각의 하늘상태에 맞는 피드 노출|
+```
+{
+    "statusCode": 200,
+    "responseMessage": "추천 게시글",
+    "data": [
+        {
+            "id": 1,
+            "content": "test content1",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3758659",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c982460c-ac61-468d-8f9a-d61a326b0c60.PNG"
+        },
+        {
+            "id": 4,
+            "content": "test content2",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3998028",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/adf4788f-4784-40ac-9848-33914b3f4d36.PNG"
+        }
+    ]
+}
+```
 
 #### 좋아요
 |||
