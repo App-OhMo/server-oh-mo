@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ceda125-db54-45ae-a3f8-c22302eb8e1a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/dto/MemberSaveRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/dto/MemberSaveRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/dto/BoardAllResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/dto/BoardAllResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/recommendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/Controller/recommendController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/repository/BoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/repository/BoardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/BoardSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/BoardSearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/recommendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-share-community/src/main/java/com/springproject/weathersharecommunity/service/recommendService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feat/23-recommend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

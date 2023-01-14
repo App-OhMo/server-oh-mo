@@ -1,10 +1,7 @@
 package com.springproject.weathersharecommunity.Controller.dto;
 
 
-import com.springproject.weathersharecommunity.domain.Board;
-import com.springproject.weathersharecommunity.domain.Image;
-import com.springproject.weathersharecommunity.domain.Member;
-import com.springproject.weathersharecommunity.domain.WeatherStatus;
+import com.springproject.weathersharecommunity.domain.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,6 +29,8 @@ public class BoardAllResponseDto {
 
     private String imgUrl;
 
+    private SkyCode skyCode;
+
 
     public BoardAllResponseDto(Board entity) {
         this.id = entity.getId();
@@ -44,6 +43,7 @@ public class BoardAllResponseDto {
         }catch(IndexOutOfBoundsException e){
             imgUrl = "";
         }
+        this.skyCode = entity.getSkyCode();
     }
 
 

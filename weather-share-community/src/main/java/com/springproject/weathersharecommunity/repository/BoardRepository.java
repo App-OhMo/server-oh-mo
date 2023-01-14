@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-    @Query(value = "SELECT * FROM Board b WHERE b.content LIKE %:keyword%", nativeQuery = true)
+    @Query(value = "SELECT * FROM Board as b WHERE b.content LIKE %:keyword%", nativeQuery = true)
     List<Board> findAllSearch(String keyword);
 
     List<Board> findByMemberIdOrderByIdDesc(long memberId);
@@ -23,6 +23,9 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
    // @Query(value = "SELECT * FROM Board WHERE present_temperature BETWEEN (CAST(b.presentTemperature AS singed integer)-2) AND currentWeather)", nativeQuery = true)
     @Query(value = "SELECT * FROM Board as b WHERE b.present_temperature IN (:tempsToString) ", nativeQuery = true)
     List<Board> recommendPosts(@Param(value = "tempsToString") List<String> tempsToString);
+
+    @Query(value = "SELECT * FROM Board as b WHERE b.present_temperature IN (:tempsToString)", nativeQuery = true)
+    List<Board> findByTemps(@Param(value = "tempsToString") List<String> tempsToString);
 
 
 
