@@ -365,23 +365,14 @@ http://3.38.56.88:8080/
     "data": [
         {
             "id": 1,
-            "content": "test content1",
+            "content": "하늘상태 테스트",
             "privacy": false,
-            "createDate": "2022-09-17T21:38:17.3758659",
+            "createDate": "2023-01-14T04:56:58.808928",
             "status": null,
-            "memberName": "park",
-            "profileUrl": "",
-            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c982460c-ac61-468d-8f9a-d61a326b0c60.PNG"
-        },
-        {
-            "id": 4,
-            "content": "test content2",
-            "privacy": false,
-            "createDate": "2022-09-17T21:38:17.3998028",
-            "status": null,
-            "memberName": "park",
-            "profileUrl": "",
-            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/adf4788f-4784-40ac-9848-33914b3f4d36.PNG"
+            "memberName": "kim2",
+            "profileUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/user/b97afd9c-e829-4a96-aed9-68b8c93f6111.png",
+            "imgUrl": "",
+            "skyCode": "Blur"
         }
     ]
 }
