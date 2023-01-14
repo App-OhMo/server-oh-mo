@@ -41,10 +41,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/37-myFeed" />
+        <entry key="$PROJECT_DIR$" value="feat/23-recommend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,11 +70,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="D:/" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager" selected="Application.WeatherShareCommunityApplication">
+<<<<<<< HEAD
     <configuration name="WeatherShareCommunityApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-11.0.13" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+=======
+    <configuration name="WeatherShareCommunityApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+>>>>>>> 733b3976f3735430a2a2188791d70795a8fc5057
       <option name="MAIN_CLASS_NAME" value="com.springproject.weathersharecommunity.WeatherShareCommunityApplication" />
       <module name="weather-share-community.weather-share-community.main" />
       <extension name="coverage">
@@ -108,7 +121,6 @@
       <list>
         <item itemvalue="Application.WeatherShareCommunityApplication" />
         <item itemvalue="Gradle.weather-share-community [build]" />
-        <item itemvalue="Application.WeatherShareCommunityApplication" />
         <item itemvalue="Application.WeatherShareCommunityApplication" />
         <item itemvalue="Application.WeatherShareCommunityApplication" />
       </list>

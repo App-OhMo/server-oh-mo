@@ -36,6 +36,7 @@ public class BoardService {
     public BoardResponseDto boardDetail(Long boardId) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new IllegalArgumentException("글을 찾을수 없습니다."));
         List<String> images = imageRepository.findUrlByBoardId(boardId);
+
         Clothes clothes = clothesRepository.findAllByBoardId(boardId);
         ClothesResponseDto clothesResponseDto = new ClothesResponseDto(clothes);
         BoardResponseDto boardResponseDto = new BoardResponseDto(board, images, null, clothesResponseDto);

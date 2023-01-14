@@ -19,15 +19,37 @@ weather-share-community
 http://3.38.56.88:8080/
 
 ## API
+### Test
+#### 전체멤버 조회
+|||  
+|------|---|
+|method|Get|
+|url|/test/user/all|
+```
+{
+    "statusCode": 200,
+    "responseMessage": "전체 멤버 조회",
+    "data": "db에 들어있느 회원 전체 정보"
+}
+```   
+|||  
+|------|---|
+|method|Post|
+|url|/check/token|   
+|Header|X-AUTH-TOKEN|   
+|참고|유효한 토큰이면 true 아니면 false, 불규칙하게 서버 500 에러를 반환하기도 함, 하지만 토큰 값이 유효한 경우에는 무조건 true 반환|
+```
+{
+    true or false
+}
+```  
 ### User
 #### 회원가입
 |||
 |------|---|
 |method|Post|
 |url|/user/join|
-|file|1개, name= "profile", null 가능|
 |Body|{"nickName" : "bbbb", "userEmail":"bbbb@bbbb.com", "pwd" : "bbbb"}|   
-|참고| 프로필 제외한 나머지 속성들 null 불가능, 이메일 @ 없이 보내면 오류
 
 ```
 {
@@ -41,7 +63,6 @@ http://3.38.56.88:8080/
 |------|---|
 |method|Post|
 |url|/user/login|
-|Header|X-AUTH-TOKEN|
 |Body|{"userEmail" : "bbbb","pwd" : "bbbb"}|   
 
 ```
@@ -269,6 +290,102 @@ http://3.38.56.88:8080/
     "data": null
 }
 ```    
+
+#### 추천피드
+|||
+|------|---|
+|method|Get|
+|url|/board/recommend|
+|Header|X-AUTH-TOKEN|
+|Param|currentWeather|
+|   |currentWeather: int, 현재 날씨|
+|참고| 현재날씨 +-2도의 게시물 추천 |
+```
+{
+    "statusCode": 200,
+    "responseMessage": "추천 게시글",
+    "data": [
+        {
+            "id": 1,
+            "content": "test content1",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3758659",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c982460c-ac61-468d-8f9a-d61a326b0c60.PNG"
+        },
+        {
+            "id": 4,
+            "content": "test content2",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3998028",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/adf4788f-4784-40ac-9848-33914b3f4d36.PNG"
+        },
+        {
+            "id": 7,
+            "content": "test content3",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.4017974",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c078980c-1434-4cec-b47d-59ef145b0b80.PNG"
+        },
+        {
+            "id": 10,
+            "content": "test content4",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.408779",
+            "status": null,
+            "memberName": "kim2",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c5a16e1a-5c37-4e16-810f-fb21d0ab0fbe.PNG"
+        }
+    ]
+}
+```
+#### 하늘상태 기반 추천피드
+|||
+|------|---|
+|method|Get|
+|url|/board/recommend/{skyCode}|
+|Header|X-AUTH-TOKEN|
+|Param|currentWeather|
+|url(ex)|/board/recommend/Sunny?currentWeather=30|
+|   |currentWeather: int, 현재 날씨|
+|참고| 현재날씨 +-2 추천피드 + 하늘상태 (Sunny - 맑음, Blur - 흐림, Cloudy - 구름많음, Rain -비, Snow - 눈), 각각의 하늘상태에 맞는 피드 노출|
+```
+{
+    "statusCode": 200,
+    "responseMessage": "추천 게시글",
+    "data": [
+        {
+            "id": 1,
+            "content": "test content1",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3758659",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/c982460c-ac61-468d-8f9a-d61a326b0c60.PNG"
+        },
+        {
+            "id": 4,
+            "content": "test content2",
+            "privacy": false,
+            "createDate": "2022-09-17T21:38:17.3998028",
+            "status": null,
+            "memberName": "park",
+            "profileUrl": "",
+            "imgUrl": "https://weatherawsbucket.s3.ap-northeast-2.amazonaws.com/adf4788f-4784-40ac-9848-33914b3f4d36.PNG"
+        }
+    ]
+}
+```
 
 #### 좋아요
 |||
@@ -558,6 +675,7 @@ http://3.38.56.88:8080/
 |url|/board/search|
 |Header|X-AUTH-TOKEN|
 |Param|keyword|
+|   |keyword: string, 검색 키워드|
 ```
 {
     "statusCode": 200,
@@ -584,6 +702,7 @@ http://3.38.56.88:8080/
 |url|/board/searchImg|
 |Header|X-AUTH-TOKEN|
 |Param|keyword|
+|   |keyword: string, 검색 키워드|
 |참고| 키워드 검색시 업로드한 게시물 id와 작성자 프로필 사진만 가져옴 |
 ```
 {
